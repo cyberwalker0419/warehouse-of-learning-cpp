@@ -5,7 +5,10 @@
 目前的程序大部分来自[洛谷](https://www.luogu.com.cn/),以后可能还会有[atcoder](http://atcoder.jp/), [codeforces](https://codeforces.com/)等网站的题目,文件名即题号    
 
 ## 技术栈
-     <font color= Blue>我是紫色</font>
+### <span style="text-align:center;color:#00ccff">Level 0</span>
 
-
+<ol>
+<li>__基础语法__  
+<li>__STL容器__ (大部分)
+2.1
 
