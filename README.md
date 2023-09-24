@@ -5,7 +5,7 @@
 目前的程序大部分来自[洛谷](https://www.luogu.com.cn/),以后可能还会有[atcoder](http://atcoder.jp/), [codeforces](https://codeforces.com/)等网站的题目,文件名即题号    
 
 ## 技术栈
-
+    <font color= #00ccff>Level 0</font>
 
 
 
