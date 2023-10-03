@@ -4,7 +4,7 @@ int main(){
     std::stack<int> a;
     //队列
     std::queue<int> b;
-    //动态数组
+    //动态数组 序列式容器
     std::vector<int> c;
     //优先队列
     std::priority_queue<int> d;
