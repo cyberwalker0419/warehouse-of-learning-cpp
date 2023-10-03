@@ -22,6 +22,10 @@ int main(){
     for(auto it=e.begin();it!=e.end();it++){
         printf("%d\n",*it);
     }
+    //输入
+    for(auto &cc:c){
+        std::cin>>cc;
+    }
     for(auto ss:s){
         printf("%d\n",ss);
     }
