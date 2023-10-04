@@ -1,5 +1,6 @@
 
 /.vscode
 /old vs
-/usual
+/usual/test.cpp
+/usual/test.md
 *.exe
