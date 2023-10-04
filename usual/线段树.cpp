@@ -1,20 +1,22 @@
 #include <bits/stdc++.h>
 typedef long long ll;
 #define N 100005
-#define lson (o*2)
-#define rson (o*2+1)
-#define mid ((l+r)/2)
+#define lson (o<<1)
+#define rson (o<<1|1)
+#define mid ((l+r)>>2)
 #define INF 0x7fffffffffffffff
-ll sumn[N*4],maxn[N*4],tag[N*4];
+ll sumn[N<<2],maxn[N<<2],tag[N<<2],minn[N<<2];
 int a[N];
 void pushup(int o){
     sumn[o]=sumn[lson]+sumn[rson];
     maxn[o]=std::max(maxn[lson],maxn[rson]);
+    minn[o]=std::min(minn[lson],minn[rson]);
 }
 void add(int o,int l,int r,ll v){
     sumn[o]+=(r-l+1)*v;
     maxn[o]+=v;
     tag[o]+=v;
+    minn[o]+=v;
 }
 void pushdown(int o,int l,int r){
     if(!tag[o])return;
@@ -24,7 +26,7 @@ void pushdown(int o,int l,int r){
 }
 void build(int o,int l,int r){
     if(l==r){
-        sumn[o]=maxn[o]=a[l];
+        sumn[o]=maxn[o]=minn[o]=a[l];
         return;
     }
     build(lson,l,mid);
@@ -45,6 +47,14 @@ ll queryMax(int o,int l,int r,int x,int y){
     ll ans=-INF;
     if(x<=mid)ans+=std::max(ans,queryMax(lson,l,mid,x,y));
     if(y>mid)ans+=std::max(ans,queryMax(rson,mid+1,r,x,y));
+    return ans;
+}
+ll queryMin(int o,int l,int r,int x,int y){
+    if(l>=x&&r<=y)return minn[o];
+    pushdown(o,l,r);
+    ll ans=INF;
+    if(x<=mid)ans+=std::min(ans,queryMin(lson,l,mid,x,y));
+    if(y>mid)ans+=std::min(ans,queryMin(rson,mid+1,r,x,y));
     return ans;
 }
 void update(int o,int l,int r,int x,int y,int z){

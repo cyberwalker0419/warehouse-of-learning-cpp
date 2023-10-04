@@ -1,3 +1,4 @@
+```c++
 #include<bits/stdc++.h>
 int main(){
     //栈 a.top(); 
@@ -49,3 +50,4 @@ int main(){
         std::cout<<mm.first<<" "<<mm.second;
    }//遍历2(按照key值从小到大排序(字典序))
 }
+```

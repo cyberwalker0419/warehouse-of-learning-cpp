@@ -1,4 +1,6 @@
 
-.vscode
-old vs
+/.vscode
+/old vs
+/usual/test.cpp
+/usual/test.md
 *.exe

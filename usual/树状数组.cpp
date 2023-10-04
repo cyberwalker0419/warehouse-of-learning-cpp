@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+typedef long long ll;
 #define N 500005
 int n;
 int C[N];
@@ -18,6 +19,12 @@ int query(int x){
     return 0;
 }//查询
 int main(){
-
+    ll r,l,n;
+    std::vector<int> a(n+1);
+    for(int i=1;i<=n;i++){
+        std::cin>>a[i];
+        update(i,a[i]);
+    }
+    std::cout<<query(r)-query(l-1)<<"\n";
     return 0;
 }
