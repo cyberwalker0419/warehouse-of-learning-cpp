@@ -1,3 +1,4 @@
+```cpp
 #include <bits/stdc++.h>
 typedef long long ll;
 #define N 100005
@@ -39,3 +40,4 @@ int main(){
     bfs();
     return 0;
 }
+```
