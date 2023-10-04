@@ -26,7 +26,7 @@ int main(){
                 b[q]=(a[i][j-1]);
                 q++;
             }
-            for(int j=i+1;j<=n-i;j++)
+            
         }
     return 0;
 }
