@@ -42,6 +42,7 @@
 //     return 0;
 // }
 
+//正解
 #include <bits/stdc++.h>
 typedef long long ll;
 #define N 100005
