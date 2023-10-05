@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#pragma GCC optimize(2)
 typedef long long ll;
 #define N 100005
 #define INF 0x3fffffff
@@ -8,17 +7,19 @@ int main(){
     std::ios::sync_with_stdio(false);
     std::cin.tie(0);
     std::cout.tie(0);
-    int n,m,s;
+    ll n,m,s;
     std::cin>>n>>m>>s;
-    std::vector<std::vector<std::pair<int,int> > > G(n+1); 
+    std::vector<std::vector<std::pair<int,int> > > G(n+1);//邻接表
     for(int i=1;i<=m;i++){
-        int u,v,w;
+        int u,v,w;/*起点，终点，边权*/
         std::cin>>u>>v>>w;
-        G[u].push_back({v,w});
+        G[u].push_back({v,w});//加边
     }
-    std::vector<int> dis(n+1,INF),inq(n+1,0);
-    std::function<void(int)> spfa=[&](int s){
+    std::vector<ll> dis(n+1,2147483647);
+    
+    auto spfa=[&](){
         std::queue<int> q;
+        std::vector<bool> inq(n+1);
         q.push(s);
         dis[s]=0;
         inq[s]=1;
@@ -37,9 +38,7 @@ int main(){
             }
         }
     };
-    spfa(s);
-    for(int i=1;i<=n;i++){
-        std::cout<<(dis[i]!=INF?dis[i]:2147483647)<<' ';
-    }
+    spfa();
+    for(int i=1;i<=n;i++)std::cout<<dis[i]<<' ';
     return 0;
 }
