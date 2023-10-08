@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#pragma GCC optimize(2)
 typedef long long ll;
 #define N 100005
 #define INF 0x7fffffff
