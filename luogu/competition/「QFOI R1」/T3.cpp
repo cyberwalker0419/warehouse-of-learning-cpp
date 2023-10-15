@@ -20,25 +20,29 @@ int main(){
         for(int i=1;i<=n;i++){
             std::cin>>b[i];
         }
-            for(int i=0;i<=20000;i++){
-                if(b[1]<tf[1]*i){
-                    flag=0;
-                    break;
-                }
-                if((b[1]-tf[1]*i)%t[1]==0){
-                    flag=1;
-                    for(int j=2;j<=n;j++){
-                        if(b[j]-tf[j]*i%t[j]!=0){
-                            break;
-                        }
+        for(int i=1;i<=20000;i++){
+            flag1=1;
+            if(b[1]<tf[1]*i){
+                flag=0;
+                break;
+            }
+            std::cout<<b[1]<<' '<<tf[1]*i<<"\n";
+            if((b[1]-tf[1]*i)%t[1]==0){
+                for(int j=2;j<=n;j++){
+                    if(b[j]-tf[j]*i%t[j]!=0){
+                        flag1=0;
+                        break;
                     }
+                    std::cout<<b[j]<<' '<<tf[j]<<' '<<t[j]<<'\n';
                 }
             }
-            if(flag&&flag1){
-                std::cout<<"Yes";
-            }else{
-                std::cout<<"No";
-            }
+        }
+
+        if(flag&&flag1){
+            std::cout<<"Yes";
+        }else{
+            std::cout<<"No";
+        }
     }
     return 0;
 }
