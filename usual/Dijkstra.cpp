@@ -3,6 +3,12 @@ typedef long long ll;
 #define N 100005
 #define INF 0x3fffffff
 #define INFLL 0x7fffffffffffffff
+struct heap{
+    ll d,id;/*点，编号*/
+    bool operator<(const heap &rhs)const{
+        return rhs.d<d;/*以d从小到大，数组反过来*/
+    }
+};
 int main(){
     std::ios::sync_with_stdio(false);
     std::cin.tie(0);
@@ -15,30 +21,25 @@ int main(){
         std::cin>>u>>v>>w;
         G[u].push_back({v,w});//加边
     }
-    std::vector<ll> dis(n+1,2147483647);
-    
-    auto spfa=[&](){
-        std::queue<int> q;
-        std::vector<bool> inq(n+1);
-        q.push(s);
+    auto Dijkstra=[&](){
+        std::priority_queue<heap> q;//可选点集合
+        std::vector<ll> dis(n+1,INF);//最短路
+        q.push((heap){0,s});
         dis[s]=0;
-        inq[s]=1;
         while(!q.empty()){
-            int u=q.front();q.pop();
-            inq[u]=0;
+            auto xx=q.top();q.pop();
+            int u=xx.id;
+            if(xx.d!=dis[u])continue;
             for(auto xx:G[u]){
                 int v=xx.first,w=xx.second;
-                if(dis[v]>dis[u]+w){
+                if(dis[v]>dis[u]+w){//松弛操作
                     dis[v]=dis[u]+w;
-                    if(!inq[v]){
-                        inq[v]=1;
-                        q.push(v);
-                    }
+                    q.push((heap){dis[v],v});
                 }
             }
         }
+        for(int i=1;i<=n;i++)std::cout<<dis[i]<<' ';
     };
-    spfa();
-    for(int i=1;i<=n;i++)std::cout<<dis[i]<<' ';
+    Dijkstra();
     return 0;
 }
